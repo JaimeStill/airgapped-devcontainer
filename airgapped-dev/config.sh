@@ -14,7 +14,7 @@ if [ ! -d $nodecache ]; then
 fi
 
 # install dotnet tools
-sudo tar -xf ./airgapped-dev/dotnet-tools.tar.gz --directory $toolspath
+sudo tar -xf /cache/dotnet-tools.tar.gz --directory $toolspath
 
 # install global npm packages
-sudo tar -xf ./airgapped-dev/node.tar.gz --directory $nodecache
+sudo tar -xf /cache/node.tar.gz --directory $nodecache

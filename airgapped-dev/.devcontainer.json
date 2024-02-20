@@ -33,5 +33,5 @@
             ]
         }
     },
-    "postCreateCommand": "bash config.sh"
+    "postCreateCommand": "bash /cache/config.sh"
 }
