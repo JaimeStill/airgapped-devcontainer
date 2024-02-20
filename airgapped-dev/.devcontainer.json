@@ -1,0 +1,37 @@
+{
+    "name": "airgapped-dev",
+    "build": { "dockerfile": "Dockerfile" },
+    "features": {
+        "ghcr.io/devcontainers/features/azure-cli:1": {},
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": "true",
+            "username": "vscode",
+            "userUid": "1000",
+            "userGid": "1000",
+            "upgradePackages": "true"
+        },
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/devcontainers/features/dotnet:2": {},
+        "ghcr.io/devcontainers/features/git:1": {
+            "version": "latest",
+            "ppa": "false"
+        },
+        "ghcr.io/devcontainers/features/node:1": {},
+        "ghcr.io/devcontainers/features/powershell:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "${containerWorkspaceFolder}/airgapped-dev/extensions/angular.ng-template.vsix",
+                "${containerWorkspaceFolder}/airgapped-dev/extensions/ms-azuretools.vscode-docker.vsix",
+                "${containerWorkspaceFolder}/airgapped-dev/extensions/ms-dotnettools.csharp.vsix",
+                "${containerWorkspaceFolder}/airgapped-dev/extensions/ms-dotnettools.vscode-dotnet-runtime.vsix",
+                "${containerWorkspaceFolder}/airgapped-dev/extensions/ms-vscode.powershell.vsix",
+                "${containerWorkspaceFolder}/airgapped-dev/extensions/mssql-ubuntu-x64.vsix",
+                "${containerWorkspaceFolder}/airgapped-dev/extensions/rangav.vscode-thunder-client.vsix",
+                "${containerWorkspaceFolder}/airgapped-dev/extensions/spmeesseman.vscode-taskexplorer.vsix"
+            ]
+        }
+    },
+    "postCreateCommand": "bash config.sh"
+}

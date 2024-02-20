@@ -6,8 +6,18 @@ This repo is setup to build a dev container that can be transferred for use on a
 
 ## Steps
 
-1. Run the [`Generate-CodeExtensions.ps1`](./Generate-CodeExtensions.ps1) script to generate extensions in the root [*.devcontainer*](./.devcontainer/)
+1. Run the [`Generate-CodeExtensions.ps1`](./Generate-CodeExtensions.ps1) script to generate extensions in [*airgapped-dev*](./airgapped-dev/)
 
-2. Open [*online-base*](./online-base/) in a new code window and build it as a dev container.
+2. Spin up the [*online-base*](./online-base/) dev container using the [`devcontainer up`](https://github.com/devcontainers/cli?tab=readme-ov-file#context) command.
 
-    * The `postCreationCommand` will generate all of the cached resources in the root [*.devcontainer*](./.devcontainer/).
+    * The `postCreationCommand` will generate all of the cached resources in the root [*airgapped-dev*](./airgapped-dev/).
+
+    * There is currently no `stop` or `down` command for the devcontainer CLI. Once this is finished, you can remove the generated container, images, and volumes safely.
+
+3. [Pre-build](https://containers.dev/guide/prebuild) the `airgapped-dev` dev container by running:
+
+    ```pwsh
+    devcontainer build --workspace-folder .\airgapped-dev\ --image-name airgapped-dev:latest
+    ```
+
+4. 

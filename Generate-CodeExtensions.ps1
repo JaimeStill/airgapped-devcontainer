@@ -28,7 +28,7 @@ function Get-Extension([PSObject] $ext, [string] $base) {
     }
 }
 
-$base = './.devcontainer/extensions/'
+$base = './airgapped-dev/extensions/'
 
 if (Test-Path $base) {
     Remove-Item $base -Recurse -Force
