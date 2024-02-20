@@ -1,0 +1,38 @@
+{
+    "name": "test-airgapped-dev",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/workspace",
+    "forwardPorts": [
+        1433
+    ],
+    "portsAttributes": {
+        "1433": {
+            "label": "SQL Server"
+        }
+    },
+    "removeEnv": {
+        "ASPNETCORE_ENVIRONMENT": "Container",
+        "NG_CLI_ANALYTICS": "false"
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "mssql.connections": [
+                    {
+                        "server": "localhost,1433",
+                        "database": "",
+                        "authenticationType": "SqlLogin",
+                        "user": "sa",
+                        "password": "P@ssw0rd",
+                        "emptyPasswordInput": false,
+                        "savePassword": true,
+                        "profileName": "ContainerSql",
+                        "encrypt": "Mandatory",
+                        "trustServerCertificate": true
+                    }
+                ]
+            }
+        }
+    }
+}
