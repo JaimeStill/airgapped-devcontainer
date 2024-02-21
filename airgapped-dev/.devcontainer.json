@@ -22,15 +22,15 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "${containerWorkspaceFolder}/airgapped-dev/extensions/angular.ng-template.vsix",
-                "${containerWorkspaceFolder}/airgapped-dev/extensions/ms-azuretools.vscode-docker.vsix",
-                "${containerWorkspaceFolder}/airgapped-dev/extensions/ms-dotnettools.csharp.vsix",
-                "${containerWorkspaceFolder}/airgapped-dev/extensions/ms-dotnettools.vscode-dotnet-runtime.vsix",
-                "${containerWorkspaceFolder}/airgapped-dev/extensions/ms-vscode.powershell.vsix",
-                "${containerWorkspaceFolder}/airgapped-dev/extensions/mssql-ubuntu-x64.vsix",
-                "${containerWorkspaceFolder}/airgapped-dev/extensions/rangav.vscode-thunder-client.vsix",
-                "${containerWorkspaceFolder}/airgapped-dev/extensions/spmeesseman.vscode-taskexplorer.vsix"
-            ]
+                "${containerWorkspaceFolder}/extensions/angular.ng-template.vsix",
+                "${containerWorkspaceFolder}/extensions/ms-azuretools.vscode-docker.vsix",
+                "${containerWorkspaceFolder}/extensions/ms-dotnettools.csharp.vsix",
+                "${containerWorkspaceFolder}/extensions/ms-dotnettools.vscode-dotnet-runtime.vsix",
+                "${containerWorkspaceFolder}/extensions/ms-vscode.powershell.vsix",
+                "${containerWorkspaceFolder}/extensions/mssql-ubuntu-x64.vsix",
+                "${containerWorkspaceFolder}/extensions/rangav.vscode-thunder-client.vsix",
+                "${containerWorkspaceFolder}/extensions/spmeesseman.vscode-taskexplorer.vsix"
+            ]            
         }
     },
     "postCreateCommand": "bash /cache/config.sh"
