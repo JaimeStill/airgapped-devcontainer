@@ -11,17 +11,21 @@ function Get-Extension([PSObject] $ext, [string] $base) {
     $path = Join-Path $base $ext.name
 
     try {
-        Write-Host "Downloading extension $($ext.name)" -ForegroundColor Blue
-        Invoke-WebRequest -Uri $ext.url -OutFile $path
+        if (!(Test-Path $path)) {
+            Write-Host "Downloading extension $($ext.name)" -ForegroundColor Blue
+            Invoke-WebRequest -Uri $ext.url -OutFile $path
+        }
     }
     catch {
         if ($_.Exception.Response.StatusCode -eq 429) {
             $RateLimitReset = $_.Exception.Response.Headers | Where-Object -Property "Key" -eq "X-RateLimit-Reset" | Select-Object -ExpandProperty "Value"
             $RetrySeconds = $RateLimitReset - $([datetimeoffset]::Now.ToUnixTimeSeconds())
+            $RetrySeconds += 10
             Write-Host "Rate limit exceeded. Sleeping $RetrySeconds seconds due to HTTP 429 response" -ForegroundColor Yellow
             Start-Sleep -Seconds $RetrySeconds
             Get-Extension @PSBoundParameters
-        } else {
+        }
+        else {
             Write-Host @PSBoundParameters
             Write-Error -Exception $_.Exception -Message "Failed to download code extension $_"
         }
@@ -30,11 +34,9 @@ function Get-Extension([PSObject] $ext, [string] $base) {
 
 $base = './extensions/'
 
-if (Test-Path $base) {
-    Remove-Item $base -Recurse -Force
+if (!(Test-Path $base)) {
+    New-Item $base -ItemType Directory -Force | Out-Null
 }
-
-New-Item $base -ItemType Directory -Force | Out-Null
 
 Get-Json $Extensions | ForEach-Object {
     Get-Extension $_ $base

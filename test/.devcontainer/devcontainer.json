@@ -17,6 +17,16 @@
     },
     "customizations": {
         "vscode": {
+            "extensions": [
+                "${containerWorkspaceFolder}/.devcontainer/extensions/angular.ng-template.vsix",
+                "${containerWorkspaceFolder}/.devcontainer/extensions/ms-azuretools.vscode-docker.vsix",
+                "${containerWorkspaceFolder}/.devcontainer/extensions/ms-dotnettools.csharp.vsix",
+                "${containerWorkspaceFolder}/.devcontainer/extensions/ms-dotnettools.vscode-dotnet-runtime.vsix",
+                "${containerWorkspaceFolder}/.devcontainer/extensions/ms-vscode.powershell.vsix",
+                "${containerWorkspaceFolder}/.devcontainer/extensions/mssql-ubuntu-x64.vsix",
+                "${containerWorkspaceFolder}/.devcontainer/extensions/rangav.vscode-thunder-client.vsix",
+                "${containerWorkspaceFolder}/.devcontainer/extensions/spmeesseman.vscode-taskexplorer.vsix"
+            ],
             "settings": {
                 "mssql.connections": [
                     {
