@@ -8,17 +8,24 @@ This repo is setup to build a dev container that can be transferred for use on a
 
 The following steps assume you are running [Docker](https://www.docker.com/products/docker-desktop/) and have installed the [devcontainers CLI](https://github.com/devcontainers/cli?tab=readme-ov-file#context).
 
-1. Run the [`Generate-CodeExtensions.ps1`](./Generate-CodeExtensions.ps1) script to generate extensions in [*airgapped-dev*](./airgapped-dev/)
-
-2. Spin up the [*online-base*](./online-base/) dev container using the following command:
+1. Run the [*online-base*](./online-base/) dev container in VS Code with the dev containers extension installed:
 
     ```pwsh
-    devcontainer up --workspace-folder .\online-base\
+    cd ./online-base
+    code .
     ```
 
-    * The `postCreationCommand` will generate all of the cached resources in the root [*airgapped-dev*](./airgapped-dev/).
+    Open the command palette, <kbd>F1</kbd>, and select **Dev Containers: Reopen in Container**.
 
-    * There is currently [no `stop` or `down` command](https://github.com/devcontainers/cli/issues/386) for the devcontainer CLI. Once this is finished, you can remove the generated container, images, and volumes safely
+2. After the `postCreationCommand` has executed, run the [`build-cache.sh`](./online-base/build-cache.sh) script:
+
+    ```bash
+    . ./build-cache.sh
+    ```
+
+    This will generate all of the cached resources in the [*airgapped-dev/cache*](./airgapped-dev/cache) directory.
+
+    Once this is finished, you can remove the generated container, images, and volumes safely:
 
         ```pwsh
         docker stop [container-name]
