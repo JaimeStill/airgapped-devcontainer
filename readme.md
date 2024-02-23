@@ -27,14 +27,14 @@ The following steps assume you are running [Docker](https://www.docker.com/produ
 
     Once this is finished, you can remove the generated container, images, and volumes safely:
 
-        ```pwsh
-        docker stop [container-name]
-        docker rm [container-name]
+    ```pwsh
+    docker stop [container-name]
+    docker rm [container-name]
 
-        docker volume prune -a -f
+    docker volume prune -a -f
 
-        docker rmi [image-name]
-        ```
+    docker rmi [image-name]
+    ```
 
 3. [Pre-build](https://containers.dev/guide/prebuild) the `airgapped-dev` dev container by running:
 
