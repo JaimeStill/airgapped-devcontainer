@@ -1,11 +1,13 @@
 FROM mcr.microsoft.com/devcontainers/base:ubuntu
-WORKDIR /cache
-COPY ./cache .
+WORKDIR /build
+COPY ./build .
 
-RUN bash ./install-sql.sh \
-    && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
+RUN bash ./sql.sh
+RUN bash ./nvm.sh
+RUN bash ./dotnet.sh
+RUN bash ./vscode-server.sh
 
-RUN bash ./config.sh
+RUN bash apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
 
 WORKDIR /
-RUN rm -rf ./cache
+RUN rm -rf ./build
