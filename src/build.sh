@@ -31,7 +31,7 @@ mkdir -p $serverdir
 sudo tar zxvf vscode-server-linux-x64.tar.gz -C $serverdir --strip 1
 sudo touch "${serverdir}/0"
 
-curl -sL https://github.com/microsoft/vscode-mssql/releases/download/v1.22.1/mssql-1.22.1-ubuntu.16.04-x64.vsix -o mssql-ubuntu-x64.vsix
+curl -sL https://github.com/microsoft/vscode-mssql/releases/download/v1.22.1/mssql-1.22.1-ubuntu.16.04-x64.vsix -o $HOME/mssql-ubuntu-x64.vsix
 
 extensions=(
     "angular.ng-template"
@@ -41,7 +41,6 @@ extensions=(
     "ms-vscode.powershell"
     "rangav.vscode-thunder-client"
     "spmeesseman.vscode-taskexplorer"
-    "./mssql-ubuntu-x64.vsix"
 )
 
 installer=(
@@ -56,8 +55,6 @@ done
 installer+=("--accept-server-license-terms")
 
 "${installer[@]}"
-
-rm -f ./mssql-ubuntu-x64.vsix
 
 echo "Installing mssql-tools"
 curl -sSL https://packages.microsoft.com/keys/microsoft.asc | (OUT=$(sudo apt-key add - 2>&1) || echo $OUT)
