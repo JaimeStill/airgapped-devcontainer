@@ -16,7 +16,7 @@ The following steps assume you are running [Docker](https://www.docker.com/produ
 
 2. To test, press <kbd>F1</kbd> to open the command palette and select **Dev Containers: Reopen in Container**.
 
-    * You can install the [`mssql']() extension after the container is built by running the following:
+    * You can install the [`mssql`](https://github.com/microsoft/vscode-mssql) extension after the container is built by running the following:
 
         ```bash
         code --install-extension $HOME/mssql-ubuntu-x64.vsix
