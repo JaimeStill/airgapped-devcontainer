@@ -1,13 +1,9 @@
 FROM mcr.microsoft.com/devcontainers/base:ubuntu
-WORKDIR /build
-COPY ./build .
+USER vscode
+WORKDIR /home/vscode/build
+COPY ./build.sh .
 
-RUN bash ./sql.sh
-RUN bash ./nvm.sh
-RUN bash ./dotnet.sh
-RUN bash ./vscode-server.sh
-
-RUN apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
+RUN bash ./build.sh
 
 WORKDIR /
-RUN rm -rf ./build
+RUN rm -rf /home/vscode/build

@@ -1,6 +1,6 @@
 [
     {
-        "url": "https://github.com/spmeesseman/vscode-taskexplorer/releases/latest/download/vscode-taskexplorer-2.13.2.vsix",
+        "url": "https://github.com/spmeesseman/vscode-taskexplorer/releases/download/v2.13.2/vscode-taskexplorer-2.13.2.vsix",
         "name": "spmeesseman.vscode-taskexplorer.vsix"
     },
     {
@@ -8,11 +8,11 @@
         "name": "ms-dotnettools.csharp.vsix"
     },
     {
-        "url": "https://github.com/Microsoft/vscode-mssql/releases/latest/download/mssql-1.22.1-ubuntu.16.04-x64.vsix",
+        "url": "https://github.com/Microsoft/vscode-mssql/releases/download/v1.22.1/mssql-1.22.1-ubuntu.16.04-x64.vsix",
         "name": "mssql-ubuntu-x64.vsix"
     },
     {
-        "url": "https://github.com/PowerShell/vscode-powershell/releases/latest/download/powershell-2024.0.0.vsix",
+        "url": "https://github.com/PowerShell/vscode-powershell/releases/download/v2024.0.0/powershell-2024.0.0.vsix",
         "name": "ms-vscode.powershell.vsix"
     },
     {
@@ -24,11 +24,11 @@
         "name": "ms-azuretools.vscode-docker.vsix"
     },
     {
-        "url": "https://github.com/angular/vscode-ng-language-service/releases/latest/download/ng-template.vsix",
-        "name": "angular.ng-template.vsix"
+        "url": "https://marketplace.visualstudio.com/_apis/public/gallery/publishers/rangav/vsextensions/vscode-thunder-client/2.17.8/vspackage",
+        "name": "rangav.vscode-thunder-client.vsix"
     },
     {
-        "url": "https://marketplace.visualstudio.com/_apis/public/gallery/publishers/rangav/vsextensions/vscode-thunder-client/latest/vspackage",
-        "name": "rangav.vscode-thunder-client.vsix"
+        "url": "https://github.com/angular/vscode-ng-language-service/releases/latest/download/ng-template.vsix",
+        "name": "angular.ng-template.vsix"
     }
 ]

@@ -32,7 +32,7 @@ function Get-Extension([PSObject] $ext, [string] $base) {
     }
 }
 
-$base = './extensions/'
+$base = '../src/extensions/'
 
 if (!(Test-Path $base)) {
     New-Item $base -ItemType Directory -Force | Out-Null
