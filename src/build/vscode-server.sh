@@ -7,6 +7,7 @@ curl -sSL https://update.code.visualstudio.com/commit:${commit}/server-linux-x64
 mkdir -p $serverdir
 sudo tar zxvf vscode-server-linux-x64.tar.gz -C $serverdir --strip 1
 sudo touch "${serverdir}/0"
+sudo rm -f vscode-server-linux-x64.tar.gz
 
 curl -sL https://github.com/microsoft/vscode-mssql/releases/download/v1.22.1/mssql-1.22.1-ubuntu.16.04-x64.vsix -o $HOME/mssql-ubuntu-x64.vsix
 
@@ -33,3 +34,5 @@ done
 installer+=("--accept-server-license-terms")
 
 "${installer[@]}"
+
+rm -f $HOME/mssql-ubuntu-x64.vsix

@@ -3,10 +3,10 @@ USER vscode
 WORKDIR /home/vscode/build
 COPY ./build .
 
-RUN bash ./dotnet.sh
-RUN bash ./nvm.sh
-RUN bash ./sql.sh
-RUN bash ./vscode-server.sh
+RUN bash ./dotnet.sh \
+    && ./nvm.sh \
+    && ./sql.sh \
+    && ./vscode-server.sh
 
 WORKDIR /
 RUN rm -rf /home/vscode/build
