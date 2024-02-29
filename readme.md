@@ -14,7 +14,11 @@ The following steps assume you are running [Docker](https://www.docker.com/produ
     devcontainer build --workspace-folder .\src\ --image-name airgapped-dev:latest
     ```
 
-2. To test, press <kbd>F1</kbd> to open the command palette and select **Dev Containers: Reopen in Container**.
+    ![devcontainer-build](https://github.com/JaimeStill/airgapped-devcontainer/assets/14102723/a2d7d0c4-2bf6-40ae-aad3-3751a423c013)
+
+2. Open an administrative PowerShell terminal and run the [Disable-AllAdapters](./scripts/Disable-AllAdapters.ps1) script.
+
+3. Press <kbd>F1</kbd> to open the command palette and select **Dev Containers: Reopen in Container**.
 
     * You can install the [`mssql`](https://github.com/microsoft/vscode-mssql) extension after the container is built by running the following:
 
@@ -22,7 +26,7 @@ The following steps assume you are running [Docker](https://www.docker.com/produ
         code --install-extension $HOME/mssql-ubuntu-x64.vsix
         ```
 
-3. To cache the image for offline use, run:
+4. To cache the image for offline use, run:
 
     ```pwsh
     docker save airgapped-dev:latest -o [output-path]
