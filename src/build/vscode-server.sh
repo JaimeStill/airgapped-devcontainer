@@ -1,7 +1,8 @@
 #!/bin/bash
 
 echo "Installing vscode server to $HOME/.vscode-server"
-commit="903b1e9d8990623e3d7da1df3d33db3e42d80eda"
+commit="863d2581ecda6849923a2118d93a088b0745d9d6"
+sqlextversion="1.22.1"
 serverdir="$HOME/.vscode-server/bin/${commit}"
 curl -sSL https://update.code.visualstudio.com/commit:${commit}/server-linux-x64/stable -o vscode-server-linux-x64.tar.gz
 mkdir -p $serverdir
@@ -9,7 +10,7 @@ sudo tar zxvf vscode-server-linux-x64.tar.gz -C $serverdir --strip 1
 sudo touch "${serverdir}/0"
 sudo rm -f vscode-server-linux-x64.tar.gz
 
-curl -sL https://github.com/microsoft/vscode-mssql/releases/download/v1.22.1/mssql-1.22.1-ubuntu.16.04-x64.vsix -o $HOME/mssql-ubuntu-x64.vsix
+curl -sL https://github.com/microsoft/vscode-mssql/releases/download/v${sqlextversion}/mssql-${sqlextversion}-ubuntu.16.04-x64.vsix -o $HOME/mssql-ubuntu-x64.vsix
 
 extensions=(
     "angular.ng-template"

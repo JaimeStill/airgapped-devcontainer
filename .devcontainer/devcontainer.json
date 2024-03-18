@@ -1,8 +1,12 @@
 {
     "name": "test-airgapped-dev",
     "dockerComposeFile": "docker-compose.yml",
-    "service": "app",
+    "service": "dev",
     "workspaceFolder": "/workspace",
+    "removeEnv": {
+        "ASPNETCORE_ENVIRONMENT": "Container",
+        "NG_CLI_ANALYTICS": "false"
+    },
     "forwardPorts": [
         1433
     ],
@@ -10,10 +14,6 @@
         "1433": {
             "label": "SQL Server"
         }
-    },
-    "removeEnv": {
-        "ASPNETCORE_ENVIRONMENT": "Container",
-        "NG_CLI_ANALYTICS": "false"
     },
     "customizations": {
         "vscode": {
