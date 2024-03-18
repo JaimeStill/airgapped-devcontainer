@@ -218,3 +218,9 @@ The matching VS Code Server version can be downloaded at: https://update.code.vi
 
 ### Extensions
 [Back to Top](#creating-an-air-gapped-dev-container)
+
+You'll notice in [**`vscode-server.sh`**](./src/build/vscode-server.sh#L13) that the SQL Server VS Code extension is manaully downloaded and installed from the downloaded .vsix.
+
+This is because certain extensions download and install certain artifacts whenever they are first run. Some extension authors recognize this and [provide offline installers](https://github.com/microsoft/vscode-mssql?tab=readme-ov-file#offline-installation) for the environments these extensions will be run in. Fortunately the SQL Server extenion provides these offline installers.
+
+Be sure to test out the behavior of your extensions by installing and running them in an offline environment. If the extension fails to function in that environment, check the extension repository to see if there are offline installers or workarounds specified. If not and it is a critical extension, from your internet-connected machine, you could try caching the extension artifacts generated in `$env:USERPROFILE\.vscode\extensions\[extension]-[version]` and installing them as part of your image building process.
